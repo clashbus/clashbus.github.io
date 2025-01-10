@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashbus.github.io/news/article-38452.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Hadoop：MR以parquet格式保存文件</title>
+        <meta name="description" content="需求 此前公司用MR程序解析json，将结果以text file保存在hive表的目录下。随着数据量增大，text file的性能逐渐跟不上，需要修改代码将文件格式修改成parquet。 实现 以下是" />
+        <link rel="icon" href="/assets/website/img/clashbus/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashbus/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/venobox/venobox.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashbus/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTD3W50BTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTD3W50BTE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto">
+                <a href="/" class="xcblog-blog-logo">
+                                        <span>Clash Bus</span>
+                                    </a>
+            </h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container position-relative">
+            <h1>Hadoop：MR以parquet格式保存文件</h1>
+            <p class="desc">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>需求</h2> <p>此前公司用MR程序解析json，将结果以text file保存在hive表的目录下。随着数据量增大，text file的性能逐渐跟不上，需要修改代码将文件格式修改成parquet。</p> <h2>实现</h2> <p>以下是以parquet保存结果的demo。</p> <p>将文本中的每行以空格分隔，第一列作为id（int），第二列作为name（string），直接保存到指定目录。</p> <pre><code class="language-bash">[root@kudu1 job]# cat test.txt  1 xiaoming 2 hanmeimei 3 kangkang 4 maria 5 yokiko 6 michael</code></pre> <p>以下代码只有map程序，没有reduce。以parquet格式输出步骤为：</p> <h3>1. 创建parquet的schema信息</h3> <p>parquet的数据类型有INT64, INT32, BOOLEAN, BINARY, FLOAT, DOUBLE, INT96, FIXED_LEN_BYTE_ARRAY,其中INT64对标Java的Long；INT32对标int；BINARY对标String，但是需要指定编码格式。</p> <pre><code class="language-java">        String writeSchema = "message example {\n optional INT32 id;\n optional binary name (UTF8);\n}";</code></pre> <h3>2. 使用ExampleOutputFormat类配置parquet的schema、压缩格式、输出目录。</h3> <pre><code class="language-java">        // 配置MR的configuration         Configuration configuration = new Configuration(this.getConf());         configuration.set("mapreduce.input.fileinputformat.split.minsize","2147483648");         configuration.set("parquet.example.schema",writeSchema);</code></pre> <h3>3. 配置map的value输出格式为org.apache.parquet.example.data.Group。</h3> <p>parquet是列式存储，不同列的同一行表示为一个group。可以理解为一行就是一个group。每次map都是以group格式写入parquet文件的。</p> <pre><code class="language-java">        job.setMapOutputValueClass(Group.class);//TODO 设置value是parquet的Group</code></pre> <h3>4. 配置job的输出格式</h3> <pre><code class="language-java">        LazyOutputFormat.setOutputFormatClass(job, ExampleOutputFormat.class);         MultipleOutputs.addNamedOutput(job, "output", ExampleOutputFormat.class, NullWritable.class,Group.class);</code></pre> <h3>&nbsp;5. 在Mapper类中定义用于创建group的工厂类。</h3> <pre><code class="language-java">//map类中定义 factory属性 private SimpleGroupFactory factory;  //setup初始化方法中创建SimpleGroupFactory factory = new SimpleGroupFactory(GroupWriteSupport.getSchema(context.getConfiguration()));</code></pre> <h3>6.map方法中创建group并赋值，写出。</h3> <pre><code class="language-java">            String[] strings = value.toString().split(" ");             //TODO 创建group             Group group = factory.newGroup();             //TODO 为group赋值             group.add("id",Integer.valueOf(strings[0]));             group.add("name",strings[1]);             //TODO 写出             mos.write("output",  null, group);</code></pre> <h2>代码</h2> <p>以下为完整代码</p> <pre><code class="language-java">package com.zixuan.hadoop;  import org.apache.hadoop.conf.Configuration; import org.apache.hadoop.conf.Configured; import org.apache.hadoop.fs.FileSystem; import org.apache.hadoop.fs.Path; import org.apache.hadoop.io.LongWritable; import org.apache.hadoop.io.NullWritable; import org.apache.hadoop.io.Text; import org.apache.hadoop.mapreduce.Job; import org.apache.hadoop.mapreduce.Mapper; import org.apache.hadoop.mapreduce.lib.input.MultipleInputs; import org.apache.hadoop.mapreduce.lib.input.TextInputFormat; import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs; import org.apache.hadoop.mapreduce.lib.output.LazyOutputFormat; import org.apache.hadoop.util.Tool; import org.apache.hadoop.util.ToolRunner; import org.apache.parquet.example.data.Group; import org.apache.parquet.example.data.simple.SimpleGroupFactory; import org.apache.parquet.hadoop.example.GroupWriteSupport; import org.apache.parquet.hadoop.example.ExampleOutputFormat; import org.apache.parquet.hadoop.metadata.CompressionCodecName; import org.apache.parquet.schema.MessageTypeParser;  import java.io.IOException; import java.util.Random;  public class MrSavedAsParquet extends Configured implements Tool {     public static void main(String[] args) throws Exception {         int ret = ToolRunner.run(new MrSavedAsParquet(), args);         System.exit(ret);     }      public int run(String[] strings) throws Exception {          String inputDir = "/user/hive/warehouse/inputdirTest";         String outputDir = "/user/hive/warehouse/ods.db/usertest";          //为parquet生成schema         String writeSchema = "message example {\n optional INT32 id;\n optional binary name (UTF8);\n}";          // 配置MR的configuration         Configuration configuration = new Configuration(this.getConf());         configuration.set("mapreduce.input.fileinputformat.split.minsize","2147483648");         configuration.set("parquet.example.schema",writeSchema);          Job job = new Job(configuration,"UserTest");         //配置parquet         ExampleOutputFormat.setSchema(job, MessageTypeParser.parseMessageType(writeSchema));         ExampleOutputFormat.setCompression(job, CompressionCodecName.SNAPPY);         ExampleOutputFormat.setOutputPath(job, new Path(outputDir));         //配置Job的基本信息         job.setJarByClass(MrSavedAsParquet.class);         job.setMapperClass(MapTest.class);         job.setInputFormatClass(TextInputFormat.class);         job.setMapOutputKeyClass(Text.class);         job.setMapOutputValueClass(Group.class);//TODO 设置value是parquet的Group          MultipleInputs.addInputPath(job,new Path(inputDir), TextInputFormat.class,MapTest.class);         job.setNumReduceTasks(0);          //TODO 设置输出格式是parquet         LazyOutputFormat.setOutputFormatClass(job, ExampleOutputFormat.class);         MultipleOutputs.addNamedOutput(job, "output", ExampleOutputFormat.class, NullWritable.class,Group.class);          FileSystem fileSystem = FileSystem.get(configuration);         if ( ! fileSystem.exists(new Path(inputDir))){             System.out.print("input path does not exist!");             return 1;         }          int ret = job.waitForCompletion(true) ? 0 : 1;           return ret;     }      public static class MapTest extends Mapper&lt;LongWritable, Text, NullWritable, Group&gt; {         // 多目录输出         private MultipleOutputs&lt;NullWritable, Group&gt; mos; // 多目录输出         //定义用于创建group的工厂类         private SimpleGroupFactory factory;          //初始化，创建mos和factory         @Override         public void setup(Context context) throws IOException, InterruptedException {             mos = new MultipleOutputs&lt;NullWritable,Group &gt;(context);// 初始化mos             factory = new SimpleGroupFactory(GroupWriteSupport.getSchema(context.getConfiguration()));         }          /*             LongWritable key是文件偏移量             Text value是每行的数据             Context context是上下文对象，可以获取conf中的配置项          */         @Override         public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {             String[] strings = value.toString().split(" ");             //TODO 创建group             Group group = factory.newGroup();             //TODO 为group赋值             group.add("id",Integer.valueOf(strings[0]));             group.add("name",strings[1]);             //TODO 写出             mos.write("output",  null, group);         }          @Override         protected void cleanup(Context context) throws IOException, InterruptedException {             mos.close();         }     } }</code></pre> <p>文件已经保存到/user/hive/warehouse/ods.db/usertest目录下，创建ods.usertest的hive表：</p> <pre><code class="language-sql">CREATE TABLE ods.usertest ( id   int, name string ) stored as parquet;</code></pre> <p>查询：</p> <pre><code class="language-bash">hive&gt; select * from ods.usertest; OK 1	xiaoming 2	hanmeimei 3	kangkang 4	maria 5	yokiko 6	michael Time taken: 0.053 seconds, Fetched: 6 row(s)</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37942.htm">宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）</a></p>
+                                        <p>下一个：<a href="/news/article-38453.htm">动物医院有宠物卖吗知乎 动物医院有宠物卖吗知乎</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-node-subscribe-links.htm" title="1月10日最新机场订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享">1月10日最新机场订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-37471.htm" title="动物疫苗有哪几种类型（我国疫苗有几种类型）">动物疫苗有哪几种类型（我国疫苗有几种类型）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-clash-windows.htm" title="1月7日最新免费节点 | 19.6M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址">1月7日最新免费节点 | 19.6M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-clash-node-github.htm" title="1月9日最新机场订阅 | 21.1M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点地址链接分享">1月9日最新机场订阅 | 21.1M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe.htm" title="1月8日最新机场订阅 | 18.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">1月8日最新机场订阅 | 18.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-37306.htm" title="青浦二中分数线2021高考多少分（青浦二中分数线2021高考多少分录取）">青浦二中分数线2021高考多少分（青浦二中分数线2021高考多少分录取）</a></li>
+                        <li class="py-2"><a href="/news/article-37941.htm" title="如何在MySQL中使用复合INTERVAL单元？">如何在MySQL中使用复合INTERVAL单元？</a></li>
+                        <li class="py-2"><a href="/news/article-37305.htm" title="你的编程能力从什么时候开始突飞猛进? 我的回答：2013年，我开始喜欢编程了。">你的编程能力从什么时候开始突飞猛进? 我的回答：2013年，我开始喜欢编程了。</a></li>
+                        <li class="py-2"><a href="/news/article-38452.htm" title="Hadoop：MR以parquet格式保存文件">Hadoop：MR以parquet格式保存文件</a></li>
+                        <li class="py-2"><a href="/news/article-38453.htm" title="动物医院有宠物卖吗知乎 动物医院有宠物卖吗知乎">动物医院有宠物卖吗知乎 动物医院有宠物卖吗知乎</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+        
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="text-white-50 f-15 mb-0">
+                        <a href="/">Clash Bus免费订阅地址官方中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="credits"></div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashbus/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/counterup/counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/venobox/venobox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashbus/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
