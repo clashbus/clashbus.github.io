@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashbus.github.io/news/article-39929.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>vue-cli中devServer.proxy相关配置项的使用_vue.js</title>
+        <meta name="description" content="目录  devServer.proxy相关配置项的说明  devServer.proxy中的 changeOrigin 参数 devServer.proxy中的 pathRewrite 参数  dev" />
+        <link rel="icon" href="/assets/website/img/clashbus/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashbus/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/venobox/venobox.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashbus/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTD3W50BTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTD3W50BTE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto">
+                <a href="/" class="xcblog-blog-logo">
+                                        <span>Clash Bus</span>
+                                    </a>
+            </h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container position-relative">
+            <h1>vue-cli中devServer.proxy相关配置项的使用_vue.js</h1>
+            <p class="desc">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">devServer.proxy相关配置项的说明</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">devServer.proxy中的 changeOrigin 参数</a></li> <li><a href="#_lab2_0_1" rel="nofollow">devServer.proxy中的 pathRewrite 参数</a></li> </ul> <li><a href="#_label1" rel="nofollow">devServer.proxy代理配置详解</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">.config.js文件中引入依赖项</a></li> <li><a href="#_lab2_1_3" rel="nofollow">更多的代理控制行为</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>devServer.proxy相关配置项的说明</h2> <p>如图：</p> <p style="text-align:center"><img fetchpriority="high" decoding="async" alt="" height="468" src="http://img.555519.xyz/uploads3/20220419/c654dd8247e19c678eadded88b38f3d4.jpg"></p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>devServer.proxy中的 changeOrigin 参数</h3> <p>changeOrigin 为false时，请求头中host仍然是浏览器发送过来的host;如果设置成true：发送请求头中host会设置成target的值。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>devServer.proxy中的 pathRewrite 参数</h3> <p>本示例中，pathRewrite设置了<strong> '^/lr': ''</strong> ，作用如下:</p> <p>使用代理，首先需要有一个标识，告诉程序这个连接要使用代理，不然的话，可能你的html、css、js、矢量图等静态资源都跑去代理。所以我们要通过一个唯一标识，让接口使用代理，静态资源文件使用本地。</p> <p>proxy中的 <strong>'/lr':{······}</strong>，就是告诉node，我的接口是要以 <strong>/lr</strong> 开头的才使用代理。所有的接口都要写成 <strong>/lr/xx/xx</strong> ，以 <strong>/lr</strong> 开头，最后代理的接口路径路径就是 http://localhost:8080/lirong/lr/xx/xx</p> <p>但是例子中真实的后台数据接口里没有<strong> /lr</strong>，直接就是 http://localhost:8080/lirong/xx/xx ，所以就需要配置 pathRewrite，用<strong>'^/lr': ''</strong> 将<strong> /lr</strong> 去掉，这样既有正确的标识，又能在真实请求接口的时候去掉 <strong>/lr</strong> 。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>devServer.proxy代理配置详解</h2> <p>如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器。可以通过 *.config.js 中的 devServer.proxy 选项来配置。</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>.config.js文件中引入依赖项</h3> <div class="ay1code"> <pre class="brush:js;">const proxy = require('http-proxy-middleware');</pre> </div> <p>devServer.proxy 可以是一个指向开发环境 API 服务器的字符串</p> <p>//服务器会将任何未知请求 (没有匹配到静态文件的请求) 代理到http://localhost:4000上</p> <div class="ay1code"> <pre class="brush:js;">module.exports = {    devServer: {      proxy: 'http://localhost:4000'    }  }</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>更多的代理控制行为</h3> <div class="ay1code"> <pre class="brush:js;">const proxy = require('http-proxy-middleware');  module.exports = {     devServer:{      host: 'localhost',//target host      port: 8080,      //proxy:{'/api':{}},代理器中设置/api,项目中请求路径为/api的替换为target      proxy:{          '/api':{              target: 'http://192.168.1.30:8085',//代理地址，这里设置的地址会代替axios中设置的baseURL              changeOrigin: true,// 如果接口跨域，需要进行这个参数配置              //ws: true, // proxy websockets              //pathRewrite方法重写url              pathRewrite: {                  '^/api': '/'                   //pathRewrite: {'^/api': '/'} 重写之后url为 http://192.168.1.16:8085/xxxx                  //pathRewrite: {'^/api': '/api'} 重写之后url为 http://192.168.1.16:8085/api/xxxx             }      }}  },  //...  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39424.htm">猫抓伤了表皮出了一点血要打针吗（10种图片猫抓破皮不需要打针）</a></p>
+                                        <p>下一个：<a href="/news/article-39930.htm">广州宠物猫领养中心在哪里有（广州哪里有宠物领养机构）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe.htm" title="1月8日最新机场订阅 | 18.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">1月8日最新机场订阅 | 18.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-clash-node-github.htm" title="1月9日最新机场订阅 | 21.1M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点地址链接分享">1月9日最新机场订阅 | 21.1M/S|2025年SSR/Clash/Shadowrocket/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-37305.htm" title="你的编程能力从什么时候开始突飞猛进? 我的回答：2013年，我开始喜欢编程了。">你的编程能力从什么时候开始突飞猛进? 我的回答：2013年，我开始喜欢编程了。</a></li>
+                        <li class="py-2"><a href="/news/article-37941.htm" title="如何在MySQL中使用复合INTERVAL单元？">如何在MySQL中使用复合INTERVAL单元？</a></li>
+                        <li class="py-2"><a href="/news/article-39930.htm" title="广州宠物猫领养中心在哪里有（广州哪里有宠物领养机构）">广州宠物猫领养中心在哪里有（广州哪里有宠物领养机构）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-clash-windows.htm" title="1月11日最新机场订阅 | 18.2M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享">1月11日最新机场订阅 | 18.2M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-38935.htm" title="动物疫苗价格排行前十（动物疫苗有哪些大厂家）">动物疫苗价格排行前十（动物疫苗有哪些大厂家）</a></li>
+                        <li class="py-2"><a href="/news/article-37942.htm" title="宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）">宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-node-subscribe-links.htm" title="1月10日最新机场订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享">1月10日最新机场订阅 | 18.1M/S|2025年Clash/Shadowrocket/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-39424.htm" title="猫抓伤了表皮出了一点血要打针吗（10种图片猫抓破皮不需要打针）">猫抓伤了表皮出了一点血要打针吗（10种图片猫抓破皮不需要打针）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+        
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="text-white-50 f-15 mb-0">
+                        <a href="/">Clash Bus免费订阅地址官方中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="credits"></div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashbus/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/counterup/counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/venobox/venobox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashbus/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
