@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashbus.github.io/news/article-54099.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Hive插入数据</title>
+        <meta name="description" content="1、创建完表之后，就可以插入数据了，在hive中，一般使用LOAD DATA插入数据，数据来源一般为两种，一种是从本地文件系统，第二种是从hadoop文件系统。基本语法如下： LOAD DATA [L" />
+        <link rel="icon" href="/assets/website/img/clashbus/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Bus免费订阅地址官方中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashbus.github.io/news/article-54099.htm" />
+    <meta property="og:site_name" content="Clash Bus免费订阅地址官方中文网" />
+    <meta property="og:title" content="Hive插入数据" />
+    <meta property="og:image" content="https://clashbus.github.io/uploads/20250107/8932255d4bf0c349288477315cb468d1.webp" />
+        <meta property="og:release_date" content="2025-02-10T07:37:27" />
+    <meta property="og:updated_time" content="2025-02-10T07:37:27" />
+        <meta property="og:description" content="1、创建完表之后，就可以插入数据了，在hive中，一般使用LOAD DATA插入数据，数据来源一般为两种，一种是从本地文件系统，第二种是从hadoop文件系统。基本语法如下： LOAD DATA [L" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hive插入数据">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashbus/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/venobox/venobox.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashbus/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTD3W50BTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTD3W50BTE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto">
+                <a href="/" class="xcblog-blog-logo">
+                                        <span>Clash Bus</span>
+                                    </a>
+            </h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container position-relative">
+            <h1>Hive插入数据</h1>
+            <p class="desc">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>1、创建完表之后，就可以插入数据了，在hive中，一般使用LOAD DATA插入数据，数据来源一般为两种，一种是从本地文件系统，第二种是从hadoop文件系统。基本语法如下：</p> <pre class="prettyprint"><code class="hljs sql"><span class="hljs-operator"><span class="hljs-keyword">LOAD</span> DATA [<span class="hljs-keyword">LOCAL</span>] INPATH <span class="hljs-string">'filepath'</span> [OVERWRITE] <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">TABLE</span> tablename[PARTITION (partcol1=val1,partcol2=val2,…)]</span></code></pre> <p>LOCAL是标识符指定本地路径,它是可选的; <br /> OVERWRITE 是可选的，覆盖表中的数据; <br /> PARTITION 也是可选的。 <br /> 测试： <br /> 将下列数据插入到employee表中，数据格式为每个字段中间使用tab分割，每行使用回车，存储到一个txt文件中，</p> <pre class="prettyprint"><code class="hljs cs"><span class="hljs-number">1201</span>    Gopal   <span class="hljs-number">45000</span>   Technical manager <span class="hljs-number">1202</span>    Manisha <span class="hljs-number">45000</span>   Proof reader <span class="hljs-number">1203</span>    lisong  <span class="hljs-number">50000</span>   what <span class="hljs-keyword">is</span> you <span class="hljs-number">1204</span>    xiaohau <span class="hljs-number">88888</span>   abcdefg <span class="hljs-number">1205</span>    xiaoming        <span class="hljs-number">99999</span>   hehehehe</code></pre> <p>执行导入语句：</p> <pre class="prettyprint"><code class="hljs sql"><span class="hljs-operator"><span class="hljs-keyword">LOAD</span> DATA <span class="hljs-keyword">LOCAL</span> INPATH <span class="hljs-string">'/home/hadoop/HivePy/employee.txt'</span> OVERWRITE <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">TABLE</span> userdb.employee;</span></code></pre> <p>，然后查看结果得到： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/a86b4a939e09f29bc0bfeac4ea845092.jpg" alt="Hive插入数据"><br /> 2、使用python操作hive，插入数据，代码如下：</p> <pre class="prettyprint"><code class="hljs python"><span class="hljs-comment"># coding:utf-8</span> <span class="hljs-keyword">from</span> pyhive <span class="hljs-keyword">import</span> hive <span class="hljs-keyword">from</span> TCLIService.ttypes <span class="hljs-keyword">import</span> TOperationState  <span class="hljs-comment"># 打开hive连接</span> hiveConn = hive.connect(host=<span class="hljs-string">'192.168.83.135'</span>,port=<span class="hljs-number">11111</span>,username=<span class="hljs-string">'hadoop'</span>) cursor = hiveConn.cursor()  <span class="hljs-comment"># 执行sql语句</span> sql = <span class="hljs-string">''' LOAD DATA LOCAL INPATH '/home/hadoop/HivePy/employee.txt' OVERWRITE INTO TABLE userdbbypy.employee '''</span> cursor.execute(sql, async=<span class="hljs-keyword">True</span>)  <span class="hljs-comment"># 得到执行语句的状态</span> status = cursor.poll().operationState <span class="hljs-keyword">print</span> <span class="hljs-string">"status:"</span>,status  <span class="hljs-comment"># 关闭hive连接</span> cursor.close() hiveConn.close()</code></pre> <p>执行代码，运行程序后查询相关表，结果如图所示： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/da035b32565274a547e2cb16b38be03b.jpg" alt="Hive插入数据"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53545.htm">动物接种疫苗前的准备有哪些内容（动物接种疫苗前的准备有哪些内容呢）</a></p>
+                                        <p>下一个：<a href="/news/article-54100.htm">宠物医师网官网（宠物医师论坛）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-46362.htm" title="浅谈分布式一致性协议之3PC">浅谈分布式一致性协议之3PC</a></li>
+                        <li class="py-2"><a href="/news/article-53544.htm" title="FreeRTOS进阶之任务切换完全分析_操作系统_">FreeRTOS进阶之任务切换完全分析_操作系统_</a></li>
+                        <li class="py-2"><a href="/news/article-37470.htm" title="家养的布偶猫能买吗（家养布偶猫价格多少钱一只）">家养的布偶猫能买吗（家养布偶猫价格多少钱一只）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-node-share.htm" title="1月18日最新机场订阅 | 18.6M/S|2025年V2ray/Shadowrocket/Clash/SSR免费节点地址链接分享">1月18日最新机场订阅 | 18.6M/S|2025年V2ray/Shadowrocket/Clash/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-clash-subscribe.htm" title="1月26日最新机场订阅 | 19M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点地址链接分享">1月26日最新机场订阅 | 19M/S|2025年Shadowrocket/SSR/V2ray/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-49352.htm" title="PHP字符串运算符详解">PHP字符串运算符详解</a></li>
+                        <li class="py-2"><a href="/news/article-44887.htm" title="宠物医院是不是24小时营业（宠物医院有24小时的嘛）">宠物医院是不是24小时营业（宠物医院有24小时的嘛）</a></li>
+                        <li class="py-2"><a href="/news/article-45879.htm" title="穷人能养猫吗（穷人养猫还是富人养猫）">穷人能养猫吗（穷人养猫还是富人养猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-free-clash-subscribe.htm" title="1月31日最新机场订阅 | 19.8M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享">1月31日最新机场订阅 | 19.8M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-53011.htm" title="狗粮机械设备 狗粮机械设备的价格">狗粮机械设备 狗粮机械设备的价格</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">74</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+        
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Clash Bus免费订阅地址官方中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="credits"></div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashbus/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/counterup/counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/venobox/venobox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashbus/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
