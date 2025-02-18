@@ -1,4 +1,4 @@
-# 2月15日最新机场订阅 | 19.7M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享  更新时间 2025-02-15 05:32:01
+# 2月18日最新机场订阅 | 22.4M/S|2025年V2ray/Shadowrocket/Clash/SSR免费节点地址链接分享  更新时间 2025-02-18 09:58:24
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashbus.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://clashbus.github.io/uploads/2025/02/0-20250215.yaml
-- https://clashbus.github.io/uploads/2025/02/1-20250215.yaml
-- https://clashbus.github.io/uploads/2025/02/2-20250215.yaml
-- https://clashbus.github.io/uploads/2025/02/3-20250215.yaml
-- https://clashbus.github.io/uploads/2025/02/4-20250215.yaml
+- https://clashbus.github.io/uploads/2025/02/0-20250218.yaml
+- https://clashbus.github.io/uploads/2025/02/1-20250218.yaml
+- https://clashbus.github.io/uploads/2025/02/2-20250218.yaml
+- https://clashbus.github.io/uploads/2025/02/3-20250218.yaml
+- https://clashbus.github.io/uploads/2025/02/4-20250218.yaml
 
 ### V2ray订阅链接
 
-- https://clashbus.github.io/uploads/2025/02/0-20250215.txt
-- https://clashbus.github.io/uploads/2025/02/1-20250215.txt
-- https://clashbus.github.io/uploads/2025/02/2-20250215.txt
-- https://clashbus.github.io/uploads/2025/02/3-20250215.txt
-- https://clashbus.github.io/uploads/2025/02/4-20250215.txt
+- https://clashbus.github.io/uploads/2025/02/0-20250218.txt
+- https://clashbus.github.io/uploads/2025/02/1-20250218.txt
+- https://clashbus.github.io/uploads/2025/02/2-20250218.txt
+- https://clashbus.github.io/uploads/2025/02/3-20250218.txt
+- https://clashbus.github.io/uploads/2025/02/4-20250218.txt
 
 ### Sing-box订阅链接
 
-- https://clashbus.github.io/uploads/2025/02/20250215.json
+- https://clashbus.github.io/uploads/2025/02/20250218.json
 
 ## 更多clash节点订阅 ：
 

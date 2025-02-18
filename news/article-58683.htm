@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashbus.github.io/news/article-58683.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>数据结构——C语言实现带头双向循环链表</title>
+        <meta name="description" content="数据结构——C语言实现带头双向循环链表 带头双向循环链表：结构最复杂，一般用在单独存储数据。实际中使用的链表数据结构，都是带头双向循环链表。另外这个结构虽然结构复杂，但是使用代码实现以后会发现结构会带" />
+        <link rel="icon" href="/assets/website/img/clashbus/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Bus免费订阅地址官方中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashbus.github.io/news/article-58683.htm" />
+    <meta property="og:site_name" content="Clash Bus免费订阅地址官方中文网" />
+    <meta property="og:title" content="数据结构——C语言实现带头双向循环链表" />
+    <meta property="og:image" content="https://clashbus.github.io/uploads/20250107/f73789f79c870b7cc3fcf40639ad184e.webp" />
+        <meta property="og:release_date" content="2025-02-18T09:44:59" />
+    <meta property="og:updated_time" content="2025-02-18T09:44:59" />
+        <meta property="og:description" content="数据结构——C语言实现带头双向循环链表 带头双向循环链表：结构最复杂，一般用在单独存储数据。实际中使用的链表数据结构，都是带头双向循环链表。另外这个结构虽然结构复杂，但是使用代码实现以后会发现结构会带" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="数据结构——C语言实现带头双向循环链表">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashbus/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/venobox/venobox.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashbus/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTD3W50BTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTD3W50BTE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto">
+                <a href="/" class="xcblog-blog-logo">
+                                        <span>Clash Bus</span>
+                                    </a>
+            </h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container position-relative">
+            <h1>数据结构——C语言实现带头双向循环链表</h1>
+            <p class="desc">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><strong>数据结构——C语言实现带头双向循环链表</strong><br /> 带头双向循环链表：结构最复杂，一般用在单独存储数据。实际中使用的链表数据结构，都是带头双向循环链表。另外这个结构虽然结构复杂，但是使用代码实现以后会发现结构会带来很多优势，实现反而简单了，后面我们代码实现了就知道了，比单链表实用的多。<br /> 图示：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20230203/b330e73cc14b0bc633e74fca4025aa2f.jpg"><br /> ListNode.h文件：</p> <pre><code>#include&lt;stdio.h&gt; typedef struct ListNode {  DataType _data;  struct ListNode* _next;  struct ListNode* _prev; }ListNode; typedef struct List {  struct ListNode* _head; }List; void ListInit(List* plist);//初始化带头双向循环链表 void ListDestory(List* plist);//销毁 ListNode* CreatListNode(DataType x);// void ListPushBack(List* plist, DataType x);//尾插 void ListPopBack(List* plist);//尾删 void ListPushFront(List* plist, DataType x);//头插 void ListPopFront(List* plist);//头删 void ListInsert(List* plist,ListNode* pos, DataType x);//在pos前面插入 void ListErase(List* plist,ListNode* pos); // 删除pos位置的结点 void ListPrint(List* plist); void testList(); </code></pre> <p>ListNode.c文件：</p> <pre><code>#include"ListNode.h" #include&lt;assert.h&gt; #include&lt;malloc.h&gt; //初始化链表 void ListInit(List* plist) {  assert(plist);  plist-&gt;_head = CreatListNode(0);  //仅有头结点时前驱结点和后继结点均指向自身  plist-&gt;_head-&gt;_next = plist-&gt;_head;  plist-&gt;_head-&gt;_prev = plist-&gt;_head; } //销毁链表 void ListDestory(List* plist) {  assert(plist);  ListNode* cur=plist-&gt;_head-&gt;_next;  while (cur != plist-&gt;_head)  {   ListNode* next = cur-&gt;_next;   //遍历释放空间   free(cur);   //释放空间后将其置为空   cur = next;  }  //最后释放头结点  free(plist-&gt;_head);  plist-&gt;_head = NULL; } //生成新结点 ListNode* CreatListNode(DataType x) { //分配空间  ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));  //为新结点赋值  newNode-&gt;_data = x;  newNode-&gt;_next = newNode-&gt;_prev = NULL;  return newNode; } //尾插 void ListPushBack(List* plist, DataType x) {  assert(plist);  ListNode* newNode = CreatListNode(x);  ListNode* tail = plist-&gt;_head-&gt;_prev;  tail-&gt;_next = newNode;  newNode-&gt;_next = plist-&gt;_head;  newNode-&gt;_prev = tail;  plist-&gt;_head-&gt;_prev = newNode; } //尾删 void ListPopBack(List* plist) {  assert(plist);  ListNode* prev, * tail;  //判断是否为头结点  if (plist-&gt;_head == plist-&gt;_head-&gt;_next)  {   return;  }  tail = plist-&gt;_head-&gt;_prev;  prev = tail-&gt;_prev;  prev-&gt;_next = plist-&gt;_head;  plist-&gt;_head-&gt;_prev = prev;  free(tail);  tail = NULL; } //头插 void ListPushFront(List* plist, DataType x) {  assert(plist);  ListNode* newNode = CreatListNode(x);  ListNode* next = plist-&gt;_head-&gt;_next;  plist-&gt;_head-&gt;_next = newNode;   newNode-&gt;_prev = plist-&gt;_head;  newNode-&gt;_next = next;  next-&gt;_prev = newNode; } //头删 void ListPopFront(List* plist) {  assert(plist);  ListNode* next = plist-&gt;_head-&gt;_next;  ListNode* nextnext=next-&gt;_next;  //判断是否为头结点  if (plist-&gt;_head == plist-&gt;_head-&gt;_next)  {   return;  }  plist-&gt;_head-&gt;_next = nextnext;  nextnext-&gt;_prev = plist-&gt;_head;  free(next);  next = NULL; } //在pos位置前面插入 void ListInsert(List* plist, ListNode* pos, DataType x) {  assert(plist &amp;&amp; pos);  ListNode* prev = pos-&gt;_prev;  ListNode* newNode = CreatListNode(x);  prev-&gt;_next = newNode;  newNode-&gt;_prev = prev;  newNode-&gt;_next = pos;  pos-&gt;_prev = newNode; } //删除pos位置的结点 void ListErase(List* plist,ListNode* pos) {  assert(plist &amp;&amp; pos);  ListNode* prev, * next;  //判断是否为头结点  if (plist-&gt;_head == pos)  {   return;  }  prev = pos-&gt;_prev;  next = pos-&gt;_next;  prev-&gt;_next = next;  next-&gt;_prev = prev;  free(pos);  pos = NULL; } //打印链表 void ListPrint(List* plist) {  assert(plist);  ListNode* cur = plist-&gt;_head-&gt;_next;  while (cur != plist-&gt;_head)  {     printf("%d-&gt;", cur-&gt;_data);     cur = cur-&gt;_next;  }  printf("\n"); } //测试 void testList() {  List list;  ListInit(&amp;list);  ListPushBack(&amp;list, 1);  ListPushBack(&amp;list, 2);  ListPushBack(&amp;list, 3);  ListPushBack(&amp;list, 4);  ListPushFront(&amp;list, 1);  ListPushFront(&amp;list, 2);  ListPushFront(&amp;list, 3);  ListPushFront(&amp;list, 4);  ListPrint(&amp;list);  ListPopBack(&amp;list);  ListPopFront(&amp;list);  ListPrint(&amp;list);  ListDestory(&amp;list);  ListPrint(&amp;list); </code></pre> <p>main.c文件</p> <pre><code>int main() {  testList();  return 0; } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58004.htm">太原市狗粮批发市场在哪（太原哪里买狗）</a></p>
+                                        <p>下一个：<a href="/news/article-58684.htm">厦门同安宠物店在哪里呀（厦门同安宠物店在哪里呀）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-49352.htm" title="PHP字符串运算符详解">PHP字符串运算符详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-clash.htm" title="1月14日最新机场订阅 | 22.1M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点地址链接分享">1月14日最新机场订阅 | 22.1M/S|2025年Clash/SSR/V2ray/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-57434.htm" title="十大动物疫苗公司有哪些品牌的 十大动物疫苗公司有哪些品牌的">十大动物疫苗公司有哪些品牌的 十大动物疫苗公司有哪些品牌的</a></li>
+                        <li class="py-2"><a href="/news/article-42394.htm" title="C语言操作符详解">C语言操作符详解</a></li>
+                        <li class="py-2"><a href="/news/article-40409.htm" title="动物疫苗品牌排名前十名有哪些（动物疫苗品牌排名前十名有哪些名字）">动物疫苗品牌排名前十名有哪些（动物疫苗品牌排名前十名有哪些名字）</a></li>
+                        <li class="py-2"><a href="/news/article-50912.htm" title="动物医院纪录片 动物医院纪录片***">动物医院纪录片 动物医院纪录片***</a></li>
+                        <li class="py-2"><a href="/news/article-46858.htm" title="58同城狗狗领养武汉（武汉领养狗狗的平台）">58同城狗狗领养武汉（武汉领养狗狗的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-46362.htm" title="浅谈分布式一致性协议之3PC">浅谈分布式一致性协议之3PC</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-high-speed-nodes.htm" title="1月27日最新机场订阅 | 21.6M/S|2025年Shadowrocket/Clash/V2ray/SSR免费节点地址链接分享">1月27日最新机场订阅 | 21.6M/S|2025年Shadowrocket/Clash/V2ray/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-47828.htm" title="动物疫控中心可以打疫苗吗 动物疫控中心可以打疫苗吗现在">动物疫控中心可以打疫苗吗 动物疫控中心可以打疫苗吗现在</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">74</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+        
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Clash Bus免费订阅地址官方中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="credits"></div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashbus/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/counterup/counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/venobox/venobox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashbus/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
