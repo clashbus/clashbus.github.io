@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashbus.github.io/news/article-77529.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>【数据结构之线性表】顺序表简单实现图书系统</title>
+        <meta name="description" content="&nbsp; &nbsp; &nbsp; &nbsp; 本次图书系统使用DEV C++软件来进行操作实现。实现语言是c++。 实现图书系统使用到了顺序表的初始化、顺序表的建立、顺序表的插入、顺序表的删" />
+        <link rel="icon" href="/assets/website/img/clashbus/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Bus免费订阅地址官方中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashbus.github.io/news/article-77529.htm" />
+    <meta property="og:site_name" content="Clash Bus免费订阅地址官方中文网" />
+    <meta property="og:title" content="【数据结构之线性表】顺序表简单实现图书系统" />
+    <meta property="og:image" content="https://clashbus.github.io/uploads/20250107/8932255d4bf0c349288477315cb468d1.webp" />
+        <meta property="og:release_date" content="2025-03-20T10:00:31" />
+    <meta property="og:updated_time" content="2025-03-20T10:00:31" />
+        <meta property="og:description" content="&nbsp; &nbsp; &nbsp; &nbsp; 本次图书系统使用DEV C++软件来进行操作实现。实现语言是c++。 实现图书系统使用到了顺序表的初始化、顺序表的建立、顺序表的插入、顺序表的删" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【数据结构之线性表】顺序表简单实现图书系统">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashbus/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/venobox/venobox.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashbus/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTD3W50BTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTD3W50BTE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto">
+                <a href="/" class="xcblog-blog-logo">
+                                        <span>Clash Bus</span>
+                                    </a>
+            </h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container position-relative">
+            <h1>【数据结构之线性表】顺序表简单实现图书系统</h1>
+            <p class="desc">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp; &nbsp; &nbsp; &nbsp; 本次图书系统使用DEV C++软件来进行操作实现。实现语言是c++。</p> <p>实现图书系统使用到了顺序表的初始化、顺序表的建立、顺序表的插入、顺序表的删除、顺序表的查找等顺序表的基本操作。还使用到了c++的流进行数据的输入。</p> <pre><code class="language-cpp">#include&lt;iostream&gt; #include&lt;fstream&gt; #include &lt;iomanip&gt;//这三个是c++的头文件 #define MAXSIZE 20 using namespace std; typedef int Status;  //定义图书类型  typedef struct { 	string id;//ISBN 	string name;//书名 	double price;//定价  } Book; typedef struct { 	Book *elem;//存储基地址 	int length;//当前长度  }SqList; //顺序表初始化 Status InitList (SqList &amp;L) { 	L.elem = new Book[MAXSIZE];//为顺序表分配一个大小为MAXSIZE的数组空间 	if(L.elem == NULL) { 		cout&lt;&lt; "初始化分配失败！" &lt;&lt;endl; 		return 0;//初始化分配失败返回0。  	}  	L.length = 0; 	return 1;//返回一则初始化成功  } //顺序表的取值 Status GetElem (SqList L, int i, Book &amp;e) { 	if(i &lt; 1 || i &gt; L.length) { 		cout &lt;&lt; "获取值失败，原因：取值不合理！！！" &lt;&lt; endl; 		exit(1);//取值不合理直接退出。  	} 	e = L.elem[i - 1]; 	return 1;//取值成功返回一。  }  //顺序表的查找  Status LocatElem (SqList L, double e) { 	for(int i = 0; i &lt; L.length; i++) { 		if(L.elem[i].price == e) { 			return i + 1;//查找成功则返回序号 i + 1;  		} 	}  	return 0;//查找失败返回0。  }  //顺序表的插入 Status ListInsert (SqList &amp;L, int i, Book e) { 	//首先判断是否可以插入 	if(i &lt; 1 || i &gt; L.length + 1) 	{ 		return 0;  	 }  	 if(L.length == MAXSIZE)  	 { 	 	return 0; 	 } 	 for (int j = L.length - 1; j &gt;= i - 1; j--) {//插入位置及其之后的元素向后移动一位。  	 	L.elem[j + 1] = L.elem[j]; 	 } 	 L.elem[i - 1] = e;//将元素e放入到第i个元素。  	 ++L.length;//顺序表加长。  	 return 1;//插入成功返回 1。  }  //顺序表的删除 Status ListDelete (SqList &amp;L, Status i) { 	//在顺序表中删除第i个元素，首先判断i的取值范围。 	if(i &lt; 1 || i &gt; L.length) { 		cout &lt;&lt; "删除失败！！！"; 		return 0;//i值不合法，返回0.  	}  	for(int j = i; j &lt;= L.length - 1; j++) { 		L.elem[j - 1] = L.elem[j]; 	} 	--L.length; 	return 1;//删除成功返回1.  }  //编写主函数调用顺序表的算法  int main() { 	SqList L; 	int i = 0, temp = 0, location = 0; 	int choose; 	double price = 0; 	Book e; 	string head_1, head_2, head_3; 	cout &lt;&lt; "1,建立\n"; 	cout &lt;&lt; "2,输入\n"; 	cout &lt;&lt; "3,取值\n"; 	cout &lt;&lt; "4,查找\n"; 	cout &lt;&lt; "5,插入\n"; 	cout &lt;&lt; "6,删除\n"; 	cout &lt;&lt; "7,输出\n"; 	cout &lt;&lt; "8,退出\n"; 	choose = -1; 	while (choose != 0) { 		cout &lt;&lt; "请选择：\n"; 		cin &gt;&gt; choose; 		switch (choose) { 			//创建顺序表  			case 1: 				if(InitList(L) == 1) { 					cout &lt;&lt; "创建成功";  				} 				break; 			//顺序信息输入  			case 2: 				{ 					i = 0; 					fstream file; 					file.open("F://数据结构//线性表//book.txt"); 					if(!file) { 						cout &lt;&lt; "错误！ 未找到文件！" &lt;&lt; endl; 						continue; 					} 					file &gt;&gt; head_1 &gt;&gt; head_2 &gt;&gt; head_3; 					while (!file.eof()) { 						file &gt;&gt; L.elem[i].id &gt;&gt; L.elem[i].name &gt;&gt; L.elem[i].price; 						i++; 					} 					cout &lt;&lt;"输入 book.txt信息完毕\n\n"; 					L.length = i; 					file.close(); 				} 				break; 			//顺序表的取值  			//调用此函数：GetElem (SqList L, int i, Book &amp;e) 			case 3: 				{ 					cout &lt;&lt; "请输入一个位置用来取值:\n"; 					cin &gt;&gt;i; 					temp = GetElem(L,i,e); 	                if(temp!=0) 	                { 	                    cout&lt;&lt; "查找成功\n"; 	                    cout&lt;&lt; "第" &lt;&lt; i &lt;&lt; "本图书的信息是:\n"; 	                    cout&lt;&lt; left &lt;&lt; setw(15) &lt;&lt; e.id &lt;&lt; "\t"  ///在C++中，setw(int n)用来控制输出间隔。 	                        &lt;&lt; left &lt;&lt; setw(50) &lt;&lt; e.name &lt;&lt; "\t" 	                        &lt;&lt; left &lt;&lt; setw(5) &lt;&lt; e.price &lt;&lt; endl 	                        &lt;&lt; endl; 	                } 	                else cout&lt;&lt; "查找失败，位置超出范围！\n\n";	 				}		 				break; 			//顺序表的查找  			//调用此函数：LocatElem (SqList L, double e) 			case 4: 				{ 					cout &lt;&lt; "请输入要查找的价格：\n"; 					cin &gt;&gt; price; 					i = LocatElem(L,price); 					if (i == 0) { 						cout &lt;&lt; "查找失败！！！";  					} else { 						cout &lt;&lt; "此价格商品的序列号为：" &lt;&lt; i &lt;&lt;endl; 					} 				} 				break; 			//顺序表的插入 ， 			//调用此函数：Status ListInsert (SqList &amp;L, int i, Book e)  			case 5: 				{ 					cout &lt;&lt; "输入插入的位置,书本信息包括：编号 书名 价格"; 					cin &gt;&gt; location; 					cin &gt;&gt; e.id &gt;&gt; e.name &gt;&gt; e.price; 					i = ListInsert(L,location,e); 					if (i == 1) { 						cout &lt;&lt; "插入成功！！！"; 					} 				} 				break; 			//顺序表的删除	 			//调用此函数：Status ListDelete (SqList &amp;L, Status i)   			case 6: 				{ 					cout &lt;&lt; "请输入所要删除的书籍的位置："; 					cin &gt;&gt; location;  					if(ListDelete(L,location) == 1) { 						cout &lt;&lt; "删除成功！！！"; 					} 				} 				break; 			//顺序表的输出  			case 7: 				{ 					cout &lt;&lt; "当前图书系统的信息（顺序表）读出：\n"; 					for(i = 0; i &lt; L.length; i++ ) { 						cout &lt;&lt; left &lt;&lt;setw(15)&lt;&lt; L.elem[i].id &lt;&lt; "\t" &lt;&lt; left 						&lt;&lt; setw(50) &lt;&lt; L.elem[i].name &lt;&lt; "\t" &lt;&lt; left &lt;&lt; setw(5) 						&lt;&lt; L.elem[i].price &lt;&lt; endl; 					} 					cout &lt;&lt; endl; 				} 				break; 			case 8: 				choose = 0; 				break; 			default: 				break; 		} 	} 	return 0; } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76849.htm">Vue异步更新机制以及$nextTick原理</a></p>
+                                        <p>下一个：<a href="/news/article-77530.htm">国内动物疫苗龙头企业名单公布（国内动物疫苗龙头企业名单公布了吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-53010.htm" title="动物疫苗使用时的注意事项不包括 动物疫苗使用时的注意事项不包括什么">动物疫苗使用时的注意事项不包括 动物疫苗使用时的注意事项不包括什么</a></li>
+                        <li class="py-2"><a href="/news/article-58684.htm" title="厦门同安宠物店在哪里呀（厦门同安宠物店在哪里呀）">厦门同安宠物店在哪里呀（厦门同安宠物店在哪里呀）</a></li>
+                        <li class="py-2"><a href="/news/article-60292.htm" title="上海宠物救助中心（上海宠物救助中心地址电话）">上海宠物救助中心（上海宠物救助中心地址电话）</a></li>
+                        <li class="py-2"><a href="/news/article-59146.htm" title="Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度">Blazor 发布WebAssembly使用Brotli 压缩提升初次加载速度</a></li>
+                        <li class="py-2"><a href="/news/article-72152.htm" title="宠物猫疫苗是什么疫苗类型（宠物猫疫苗是什么疫苗类型的）">宠物猫疫苗是什么疫苗类型（宠物猫疫苗是什么疫苗类型的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-free-clash-subscribe.htm" title="1月31日最新机场订阅 | 19.8M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享">1月31日最新机场订阅 | 19.8M/S|2025年SSR/Shadowrocket/V2ray/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-65715.htm" title="Java中定义和声明之间的区别。">Java中定义和声明之间的区别。</a></li>
+                        <li class="py-2"><a href="/news/article-68895.htm" title="动物疫苗多长时间打一次最好呢视频教程（动物疫苗多长时间内打）">动物疫苗多长时间打一次最好呢视频教程（动物疫苗多长时间内打）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-node-subscribe-links.htm" title="2月1日最新机场订阅 | 18.5M/S|2025年V2ray/Shadowrocket/Clash/SSR免费节点地址链接分享">2月1日最新机场订阅 | 18.5M/S|2025年V2ray/Shadowrocket/Clash/SSR免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-61469.htm" title="动物疫苗使用方法（动物疫苗接种方法）">动物疫苗使用方法（动物疫苗接种方法）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">64</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">74</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+        
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> |
+                        <a href="/free-node/">免费节点</a> |
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Clash Bus免费订阅地址官方中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="credits"></div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashbus/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/counterup/counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/venobox/venobox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashbus/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
