@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashbus.github.io/news/article-90313.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>详解Dockerfile中的copy命令</title>
+        <meta name="description" content="在编写Dockerfile的时候copy宿主机文件到镜像中，在执行构建的时候报错 guoliang@gldeMacBook-Pro docker_file % docker build -f Dock" />
+        <link rel="icon" href="/assets/website/img/clashbus/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Bus免费订阅地址官方中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashbus.github.io/news/article-90313.htm" />
+    <meta property="og:site_name" content="Clash Bus免费订阅地址官方中文网" />
+    <meta property="og:title" content="详解Dockerfile中的copy命令" />
+    <meta property="og:image" content="https://clashbus.github.io/uploads/20250107/2406127fb9c4b8a28b021fffe4d95f95.webp" />
+        <meta property="og:release_date" content="2025-04-07T09:01:57" />
+    <meta property="og:updated_time" content="2025-04-07T09:01:57" />
+        <meta property="og:description" content="在编写Dockerfile的时候copy宿主机文件到镜像中，在执行构建的时候报错 guoliang@gldeMacBook-Pro docker_file % docker build -f Dock" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="详解Dockerfile中的copy命令">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashbus/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/venobox/venobox.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashbus/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTD3W50BTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTD3W50BTE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto">
+                <a href="/" class="xcblog-blog-logo">
+                                        <span>Clash Bus</span>
+                                    </a>
+            </h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container position-relative">
+            <h1>详解Dockerfile中的copy命令</h1>
+            <p class="desc">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>在编写Dockerfile的时候copy宿主机文件到镜像中，在执行构建的时候报错</p> <pre><code class="language-bash">guoliang@gldeMacBook-Pro docker_file % docker build -f Dockerfile -t jmeter01 . [+] Building 3.3s (15/16)                                                                                                   =&gt; [internal] load build definition from Dockerfile                                                                 0.0s  =&gt; =&gt; transferring dockerfile: 860B                                                                                 0.0s  =&gt; [internal] load .dockerignore                                                                                    0.0s  =&gt; =&gt; transferring context: 2B                                                                                      0.0s  =&gt; [internal] load metadata for docker.io/library/java:8                                                            3.1s  =&gt; [auth] library/java:pull token for registry-1.docker.io                                                          0.0s  =&gt; [ 1/11] FROM docker.io/library/java:8@sha256:c1ff613e8ba25833d2e1940da0940c3824f03f802c449f3d1815a66b7f8c0e9d    0.0s  =&gt; [internal] load build context                                                                                    0.1s  =&gt; =&gt; transferring context: 2B                                                                                      0.1s  =&gt; CACHED [ 2/11] RUN mkdir /jmeterdocker                                                                           0.0s  =&gt; CACHED [ 3/11] RUN mkdir -p /jmeterdocker/test                                                                   0.0s  =&gt; CACHED [ 4/11] RUN mkdir -p /jmeterdocker/test/input/jmx                                                         0.0s  =&gt; CACHED [ 5/11] RUN mkdir -p /jmeterdocker/test/input/testdata                                                    0.0s  =&gt; CACHED [ 6/11] RUN mkdir -p /jmeterdocker/test/report/html                                                       0.0s  =&gt; CACHED [ 7/11] RUN mkdir -p /jmeterdocker/test/report/jtl                                                        0.0s  =&gt; CACHED [ 8/11] RUN mkdir -p /jmeterdocker/test/report/outputdata                                                 0.0s  =&gt; CACHED [ 9/11] RUN cd /jmeterdocker                                                                              0.0s  =&gt; ERROR [10/11] COPY   ../apache-jmeter-5.4.1.tgz /jmeterdocker                                                    0.0s ------  &gt; [10/11] COPY   ../apache-jmeter-5.4.1.tgz /jmeterdocker: ------ failed to compute cache key: "/apache-jmeter-5.4.1.tgz" not found: not found</code></pre> <p>看下Dockerfile</p> <pre><code>FROM java:8  MAINTAINER &lt;qihao@163.com&gt;  ENV http_proxy "" ENV https_proxy ""  RUN mkdir /jmeterdocker RUN mkdir -p /jmeterdocker/test RUN mkdir -p /jmeterdocker/test/input/jmx RUN mkdir -p /jmeterdocker/test/input/testdata RUN mkdir -p /jmeterdocker/test/report/html RUN mkdir -p /jmeterdocker/test/report/jtl RUN mkdir -p /jmeterdocker/test/report/outputdata RUN cd /jmeterdocker  ENV JMETER_VERSION=5.4.1 ENV JMETER_HOME=/jmeterdocker/apache-jmeter-${JMETER_VERSION} ENV JMETER_PATH=${JMETER_HOME}/bin:${PATH} ENV PATH=${JMETER_HOME}/bin:${PATH}  COPY   ../apache-jmeter-5.4.1.tgz /jmeterdocker  RUN cd /jmeterdocker &amp;&amp; tar xvf apache-jmeter-5.4.1.tgz &amp;&amp; rm apache-jmeter-5.4.1.tgz</code></pre> <p>可以看到Copy的文件使用的是相对路径（把jmetercopy到镜像的jmeterdocker文件中）</p> <p>我的jmeter.tgz存放在Docker的上一级目录中。</p> <p><img fetchpriority="high" decoding="async" alt="" height="226" src="http://img.555519.xyz/uploads3/20220602/3f863b1099300f2e1daea0197238bb4e.jpg"></p> <p>命令执行后报错提示找不到</p> <p>failed to compute cache key: "/apache-jmeter-5.4.1.tgz" not found: not found</p> <p>后来又尝试使用绝对路径更改如下,使用绝对路径</p> <pre><code>FROM java:8  MAINTAINER &lt;qihao@163.com&gt;  ENV http_proxy "" ENV https_proxy ""  RUN mkdir /jmeterdocker RUN mkdir -p /jmeterdocker/test RUN mkdir -p /jmeterdocker/test/input/jmx RUN mkdir -p /jmeterdocker/test/input/testdata RUN mkdir -p /jmeterdocker/test/report/html RUN mkdir -p /jmeterdocker/test/report/jtl RUN mkdir -p /jmeterdocker/test/report/outputdata RUN cd /jmeterdocker  ENV JMETER_VERSION=5.4.1 ENV JMETER_HOME=/jmeterdocker/apache-jmeter-${JMETER_VERSION} ENV JMETER_PATH=${JMETER_HOME}/bin:${PATH} ENV PATH=${JMETER_HOME}/bin:${PATH}  COPY   /Users/guoliang/Documents/Work/apache-jmeter-5.4.1.tgz /jmeterdocker  RUN cd /jmeterdocker &amp;&amp; tar xvf apache-jmeter-5.4.1.tgz &amp;&amp; rm apache-jmeter-5.4.1.tgz</code></pre> <p>build之后报错内容</p> <pre><code>guoliang@gldeMacBook-Pro docker_file % docker  build -f Dockerfile -t jmeter001 .                                                                  [+] Building 1.2s (14/15)                                                                                                                                =&gt; [internal] load build definition from Dockerfile                                                                                              0.0s  =&gt; =&gt; transferring dockerfile: 177B                                                                                                              0.0s  =&gt; [internal] load .dockerignore                                                                                                                 0.0s  =&gt; =&gt; transferring context: 2B                                                                                                                   0.0s  =&gt; [internal] load metadata for docker.io/library/java:8                                                                                         1.1s  =&gt; [ 1/11] FROM docker.io/library/java:8@sha256:c1ff613e8ba25833d2e1940da0940c3824f03f802c449f3d1815a66b7f8c0e9d                                 0.0s  =&gt; [internal] load build context                                                                                                                 0.0s  =&gt; =&gt; transferring context: 2B                                                                                                                   0.0s  =&gt; CACHED [ 2/11] RUN mkdir /jmeterdocker                                                                                                        0.0s  =&gt; CACHED [ 3/11] RUN mkdir -p /jmeterdocker/test                                                                                                0.0s  =&gt; CACHED [ 4/11] RUN mkdir -p /jmeterdocker/test/input/jmx                                                                                      0.0s  =&gt; CACHED [ 5/11] RUN mkdir -p /jmeterdocker/test/input/testdata                                                                                 0.0s  =&gt; CACHED [ 6/11] RUN mkdir -p /jmeterdocker/test/report/html                                                                                    0.0s  =&gt; CACHED [ 7/11] RUN mkdir -p /jmeterdocker/test/report/jtl                                                                                     0.0s  =&gt; CACHED [ 8/11] RUN mkdir -p /jmeterdocker/test/report/outputdata                                                                              0.0s  =&gt; CACHED [ 9/11] RUN cd /jmeterdocker                                                                                                           0.0s  =&gt; ERROR [10/11] COPY   /Users/guoliang/Documents/Work/apache-jmeter-5.4.1.tgz /jmeterdocker                                                     0.0s ------  &gt; [10/11] COPY   /Users/guoliang/Documents/Work/apache-jmeter-5.4.1.tgz /jmeterdocker: ------ failed to compute cache key: "/Users/guoliang/Documents/Work/apache-jmeter-5.4.1.tgz" not found: not found</code></pre> <p>后查询Docker文档，它说不能使用相对路径。</p> <p><img decoding="async" alt="" height="1200" src="http://img.555519.xyz/uploads3/20220602/115052a2c978c4b7a72bcc4d1d8cba39.jpg"></p> <p>当我将jmeter.tgz文件移动到Dockerfile同目录下在进行build后Dockerfile执行成功。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-89565.htm">宠物粮属于什么类别（宠物粮是什么）</a></p>
+                                        <p>下一个：<a href="/news/article-90314.htm">附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-ssr-subscribe.htm" title="3月5日最新机场订阅 | 22.7M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享">3月5日最新机场订阅 | 22.7M/S|2025年Shadowrocket/SSR/Clash/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-83787.htm" title="Spring-Gateway 路由配置">Spring-Gateway 路由配置</a></li>
+                        <li class="py-2"><a href="/news/article-72152.htm" title="宠物猫疫苗是什么疫苗类型（宠物猫疫苗是什么疫苗类型的）">宠物猫疫苗是什么疫苗类型（宠物猫疫苗是什么疫苗类型的）</a></li>
+                        <li class="py-2"><a href="/news/article-69543.htm" title="新疆和田宠物店在哪里开（新疆和田宠物店在哪里开门）">新疆和田宠物店在哪里开（新疆和田宠物店在哪里开门）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-free-node-subscribe-links.htm" title="3月25日最新机场订阅 | 20.9M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享">3月25日最新机场订阅 | 20.9M/S|2025年V2ray/Shadowrocket/SSR/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-ssr-subscribe.htm" title="3月31日最新机场订阅 | 21M/S|2025年V2ray/SSR/Clash/Shadowrocket免费节点地址链接分享">3月31日最新机场订阅 | 21M/S|2025年V2ray/SSR/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-67600.htm" title="春节指的是除夕还是正月初一(春节是农历的哪一天除夕是哪天)">春节指的是除夕还是正月初一(春节是农历的哪一天除夕是哪天)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-subscribe-node.htm" title="3月18日最新机场订阅 | 19.7M/S|2025年Shadowrocket/V2ray/SSR/Clash免费节点地址链接分享">3月18日最新机场订阅 | 19.7M/S|2025年Shadowrocket/V2ray/SSR/Clash免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-free-subscribe-node.htm" title="3月29日最新机场订阅 | 19.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享">3月29日最新机场订阅 | 19.9M/S|2025年SSR/V2ray/Clash/Shadowrocket免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-68895.htm" title="动物疫苗多长时间打一次最好呢视频教程（动物疫苗多长时间内打）">动物疫苗多长时间打一次最好呢视频教程（动物疫苗多长时间内打）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+        
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Clash Bus免费订阅地址官方中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="credits"></div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashbus/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/counterup/counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/venobox/venobox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashbus/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
