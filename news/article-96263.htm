@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashbus.github.io/news/article-96263.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Java基础之浅谈接口</title>
+        <meta name="description" content="前几篇文章我们已经把Java的封装、继承、多态学习完了，现在我们开始比较便于我们实际操作的学习，虽然它也是Java基础部分，但是其实入门容易，精通很难。 我认真的给大家整理了一下这些必须学会、了解的知" />
+        <link rel="icon" href="/assets/website/img/clashbus/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Bus免费订阅地址官方中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashbus.github.io/news/article-96263.htm" />
+    <meta property="og:site_name" content="Clash Bus免费订阅地址官方中文网" />
+    <meta property="og:title" content="Java基础之浅谈接口" />
+    <meta property="og:image" content="https://clashbus.github.io/uploads/20250107/27424dbd2d086faad72e5fe5d3442c14.webp" />
+        <meta property="og:release_date" content="2025-04-15T06:00:22" />
+    <meta property="og:updated_time" content="2025-04-15T06:00:22" />
+        <meta property="og:description" content="前几篇文章我们已经把Java的封装、继承、多态学习完了，现在我们开始比较便于我们实际操作的学习，虽然它也是Java基础部分，但是其实入门容易，精通很难。 我认真的给大家整理了一下这些必须学会、了解的知" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java基础之浅谈接口">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashbus/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashbus/venobox/venobox.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashbus/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YTD3W50BTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YTD3W50BTE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto">
+                <a href="/" class="xcblog-blog-logo">
+                                        <span>Clash Bus</span>
+                                    </a>
+            </h1>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container position-relative">
+            <h1>Java基础之浅谈接口</h1>
+            <p class="desc">
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+            </p>
+        </div>
+    </section><!-- End Hero -->
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				</h1> <ul> <li>前几篇文章我们已经把Java的封装、继承、多态学习完了，现在我们开始比较便于我们实际操作的学习，虽然它也是Java基础部分，但是其实入门容易，精通很难。</li> <li>我认真的给大家整理了一下这些必须学会、了解的知识点。<br /> -下面我们正式进入正题吧&lt;(￣︶￣)↗[GO!]</li> </ul> </h1> <h2 id="1接口的概念">1.接口的概念</h2> <ul> <li>接口：接口并不是类，而是帮助类去实现功能的一种技术。</li> <li>如果你的类符合某个特定的接口，我就会履行这项服务。</li> <li>定义接口我们可以使用<strong>interface</strong>关键字</li> <li>将类声明为实现某个接口可以用<strong>implements</strong></li> </ul> <h2 id="2什么是实例字段">2.什么是实例字段</h2> <ul> <li>先说字段，什么是字段？</li> <li>字段是属于类的，它是会用public、private等关键字修饰的。而变量就是我们通常定义的int a这样的，它没有访问控制符；</li> <li>所以实例字段就是我们构造器中的，也就可以理解为没用构造方法。</li> </ul> <h2 id="3接口的特点">3.接口的特点</h2> <ul> <li>接口中的所有方法都自动是public的，因此在接口中我们可以省略public关键字</li> <li>Java中接口不会有实例字段，可以将接口看成没用实例字段的抽象类。</li> <li>接口中的字段总是public static final的</li> <li>Java中虽然不能够多继承，但是可以用一个类实现多个接口，从而达到了多继承的效果。(这也是接口和抽象类的概念，虽然接口中在JDK8之前是抽象的，但是抽象类只能被继承一个，而接口可以被实现多个)</li> <li>在接口中现在实现了定义方法内容，但是需要用到default、和static关键字才可以。</li> <li>在我们类重写接口方法时，我们不可以省略public关键字</li> </ul> </h1> <ul> <li>根据上面接口的特点，现在我们来演示一下，接口到底是怎么使用的。</li> </ul> <pre><code>public interface InterfaceTest {     int a = 0;     public static final int b = 0;//public static final可以省略不写     void sum1();     public abstract void sum2();// public abstract可以省略不写     static void test1() {         System.out.println("static可以实现在接口中定义方法内容，此方法不推荐具体用法可自行学习，这也是Java8的新特性");     }     default void test2() {         System.out.println("default可以实现在接口中定义方法内容,并且此方法没必要去类中实现");     } } class Test1 implements InterfaceTest{     @Override     public void sum1() {         System.out.println("此方法必须在类中去实现");     }     @Override     public void sum2() {         System.out.println("此方法必须在类中去实现");     } }</code></pre> <ul> <li>接口的属性：</li> </ul> <ol> <li>接口不是类，所以不可以使用new运算符实例化一个接口。x = new Comparable();❌</li> <li>但是我们可以使用接口去声明一个变量 Comparable x;✔</li> <li>我们可以使用接口变量去引用实现了这个接口的类</li> </ol> <pre><code>public static void main(String[] args) {         InterfaceTest inter = new Test1();//跟多态差不多         if(inter instanceof InterfaceTest) {//同样可以使用instanceof判断，这个肯定为true了             inter.sum1();             inter.sum2();             inter.test2();         }     }</code></pre> <ul> <li>实现多接口的写法：<code>public class Employee extends Person implements Comparable,Collection,...</code></li> </ul> </h1> <ul> <li>产生原因：一个类继承了另一个类的同时，又实现了一个接口，当此接口于父类都拥有相同的方法时，他就会产生冲突，那么会哪个优先呢？我们来看一下吧</li> </ul> <pre><code>class Father {     public void sum1() {         System.out.println("我是父亲的sum1");     }     public void test2() {         System.out.println("我是父亲的test2");     } } class Son extends Father implements InterfaceTest{     @Override     public void sum1() {//在我们重写方法是不可以省略public         System.out.println("此方法必须在类中去实现，我是儿子sum1");     }     @Override     public void sum2() {         System.out.println("此方法必须在类中去实现");     }      public static void main(String[] args) {         InterfaceTest inter = new Son();         if(inter instanceof InterfaceTest) {             inter.sum1();//经过测试发现，和多态性一样，优先调用子类             inter.sum2();             inter.test2();//经过测试发现，这个default的情况是，父类优先         }     } }</code></pre> <ul> <li>最终就是记住“类优先”原则。</li> </ul> </h1> <ul> <li>如果说父类实现了某个接口，那么子类继承父类时候，自然实现了该接口，没用必要再实现了。</li> <li>在我刚接触这个"<strong>接口回调</strong>"一次时，我觉得非常的高大上。</li> <li>其实就是简单的多态应用</li> <li>假设Com是一个接口，ImpleCom()是该接口的实现类，则<code>Com c = new ImpleCom();</code></li> <li>在调用方法是仍然和多态一样。可以把实现某一接口的类创建的对象的引用赋值给该接口声明的接口变量----&gt;<code>Com c = new ImpleCom();</code>，那么该接口变量 c 就可以调用被类实现的接口方法以及接口提供的default方法或者类重写的default方法。<br /><strong>其实真没啥可说的，就是这个 c 既可以调用从接口那里实现过来的方法，也可以调用自身的方法。</strong></li> </ul> </h1> <ul> <li>对于接口内容就总结这么多，希望大家可以多多练习。如果有不足之处，希望大家多多包涵，多多支持。如果有不懂的地方可以直接私信问我，欢迎来访！<br /><strong>其实应该还有Lambda表达式，以及内部类的内容，但是这部分在基础中并不常用，我决定在后面补给大家。</strong></li> <li>我将会继续更新关于Java的学习知识，感兴趣的小伙伴可以关注一下。</li> <li>文章写得比较走心，用了很长时间，绝对不是copy过来的！</li> <li>尊重每一位学习知识的人，同时也尊重每一位分享知识的人。</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95511.htm">动物疫苗的了解和感受是什么 动物疫苗的了解和感受是什么意思</a></p>
+                                        <p>下一个：<a href="/news/article-96264.htm">狗狗打疫苗需要多少钱（狗狗打疫苗多少钱一针 有手续吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-70837.htm" title="卖鸟的宠物店（卖鸟的宠物店哪里有）">卖鸟的宠物店（卖鸟的宠物店哪里有）</a></li>
+                        <li class="py-2"><a href="/news/article-87374.htm" title="济南领养宠物的地方 济南领养宠物的地方有哪些">济南领养宠物的地方 济南领养宠物的地方有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-free-high-speed-nodes.htm" title="3月3日最新机场订阅 | 20.3M/S|2025年Shadowrocket/Clash/SSR/V2ray免费节点地址链接分享">3月3日最新机场订阅 | 20.3M/S|2025年Shadowrocket/Clash/SSR/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-85222.htm" title="python读取hive数据库">python读取hive数据库</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-node-share.htm" title="4月11日最新机场订阅 | 20.6M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享">4月11日最新机场订阅 | 20.6M/S|2025年Clash/Shadowrocket/SSR/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-free-node-subscribe-links.htm" title="4月15日最新机场订阅 | 18.6M/S|2025年Shadowrocket/Clash/SSR/V2ray免费节点地址链接分享">4月15日最新机场订阅 | 18.6M/S|2025年Shadowrocket/Clash/SSR/V2ray免费节点地址链接分享</a></li>
+                        <li class="py-2"><a href="/news/article-94766.htm" title="狗粮加盟代理条件（狗粮批发代理加盟）">狗粮加盟代理条件（狗粮批发代理加盟）</a></li>
+                        <li class="py-2"><a href="/news/article-77530.htm" title="国内动物疫苗龙头企业名单公布（国内动物疫苗龙头企业名单公布了吗）">国内动物疫苗龙头企业名单公布（国内动物疫苗龙头企业名单公布了吗）</a></li>
+                        <li class="py-2"><a href="/news/article-91784.htm" title="宠物医院可以给仓鼠看病吗（宠物医院可以给仓鼠打疫苗吗）">宠物医院可以给仓鼠看病吗（宠物医院可以给仓鼠打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-82366.htm" title="可以领养宠物的app（可以领养宠物的软件是什么?）">可以领养宠物的app（可以领养宠物的软件是什么?）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+        
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">Clash Bus免费订阅地址官方中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="credits"></div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashbus/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/counterup/counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/owl.carousel/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashbus/venobox/venobox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashbus/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
