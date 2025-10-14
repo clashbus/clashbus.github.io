@@ -1,4 +1,4 @@
-# 10月8日最新机场订阅 | 19.6M/S|2025年SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Clash节点免费节点地址链接分享  更新时间 2025-10-08 10:10:48
+# 10月14日最新机场订阅 | 22.6M/S|2025年SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点地址链接分享  更新时间 2025-10-14 06:18:02
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashbus.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://clashbus.github.io/uploads/2025/10/0-20251008.yaml
-- https://clashbus.github.io/uploads/2025/10/1-20251008.yaml
-- https://clashbus.github.io/uploads/2025/10/2-20251008.yaml
-- https://clashbus.github.io/uploads/2025/10/3-20251008.yaml
-- https://clashbus.github.io/uploads/2025/10/4-20251008.yaml
+- https://clashbus.github.io/uploads/2025/10/0-20251014.yaml
+- https://clashbus.github.io/uploads/2025/10/1-20251014.yaml
+- https://clashbus.github.io/uploads/2025/10/2-20251014.yaml
+- https://clashbus.github.io/uploads/2025/10/3-20251014.yaml
+- https://clashbus.github.io/uploads/2025/10/4-20251014.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://clashbus.github.io/uploads/2025/10/0-20251008.txt
-- https://clashbus.github.io/uploads/2025/10/1-20251008.txt
-- https://clashbus.github.io/uploads/2025/10/2-20251008.txt
-- https://clashbus.github.io/uploads/2025/10/3-20251008.txt
-- https://clashbus.github.io/uploads/2025/10/4-20251008.txt
+- https://clashbus.github.io/uploads/2025/10/0-20251014.txt
+- https://clashbus.github.io/uploads/2025/10/1-20251014.txt
+- https://clashbus.github.io/uploads/2025/10/2-20251014.txt
+- https://clashbus.github.io/uploads/2025/10/3-20251014.txt
+- https://clashbus.github.io/uploads/2025/10/4-20251014.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://clashbus.github.io/uploads/2025/10/20251008.json
+- https://clashbus.github.io/uploads/2025/10/20251014.json
 
 ## 更多Clash节点订阅 ：
 
