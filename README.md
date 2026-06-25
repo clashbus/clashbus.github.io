@@ -1,4 +1,4 @@
-# 6月18日最新机场订阅 | 22.8M/S|2025年SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点地址链接分享  更新时间 2026-06-18 05:44:40
+# 6月25日最新机场订阅 | 18.2M/S|2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点免费节点地址链接分享  更新时间 2026-06-25 08:06:00
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashbus.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://clashbus.github.io/uploads/2026/06/0-20260618.yaml
-- https://clashbus.github.io/uploads/2026/06/1-20260618.yaml
-- https://clashbus.github.io/uploads/2026/06/2-20260618.yaml
-- https://clashbus.github.io/uploads/2026/06/3-20260618.yaml
-- https://clashbus.github.io/uploads/2026/06/4-20260618.yaml
+- https://clashbus.github.io/uploads/2026/06/0-20260625.yaml
+- https://clashbus.github.io/uploads/2026/06/1-20260625.yaml
+- https://clashbus.github.io/uploads/2026/06/2-20260625.yaml
+- https://clashbus.github.io/uploads/2026/06/3-20260625.yaml
+- https://clashbus.github.io/uploads/2026/06/4-20260625.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://clashbus.github.io/uploads/2026/06/0-20260618.txt
-- https://clashbus.github.io/uploads/2026/06/1-20260618.txt
-- https://clashbus.github.io/uploads/2026/06/2-20260618.txt
-- https://clashbus.github.io/uploads/2026/06/3-20260618.txt
-- https://clashbus.github.io/uploads/2026/06/4-20260618.txt
+- https://clashbus.github.io/uploads/2026/06/0-20260625.txt
+- https://clashbus.github.io/uploads/2026/06/1-20260625.txt
+- https://clashbus.github.io/uploads/2026/06/2-20260625.txt
+- https://clashbus.github.io/uploads/2026/06/3-20260625.txt
+- https://clashbus.github.io/uploads/2026/06/4-20260625.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://clashbus.github.io/uploads/2026/06/20260618.json
+- https://clashbus.github.io/uploads/2026/06/20260625.json
 
 ## 更多Clash节点订阅 ：
 
