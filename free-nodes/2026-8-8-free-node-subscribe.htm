@@ -337,24 +337,19 @@ A：检查DNS设置是否被污染，推荐使用 DoH 或 DNS-over-TLS。</p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的重写规则能做什么？</h5></div>
-    <div class="panel-body">
-        重写（Rewrite）可用于修改请求头、屏蔽广告、替换响应内容等。通过正则匹配目标请求可实现页面定制与功能增强，但应谨慎使用以避免影响正常网站加载与安全验证。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的多策略组有什么作用？</h5></div>
     <div class="panel-body">
         多策略组可以将节点按用途、延迟或地域分类，结合路由规则实现自动分流。不同类型流量可走不同节点，提升访问速度和稳定性，特别适合多应用使用场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 在高延迟移动网络的优势？</h5></div>
     <div class="panel-body">
-        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。<hr />    </div>
+        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定移动网络。结合策略组和节点切换，可提高网页浏览、视频播放和游戏连接的稳定性和流畅度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的路由规则能否实现分国家代理？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 的重写规则能做什么？</h5></div>
     <div class="panel-body">
-        Sing-box 支持 GeoIP 路由规则，通过引入国家数据库可根据 IP 自动判断地理位置。例如可设置 CN 走直连，US/JP 走代理，以此实现分国家策略路由，适合需要访问不同地区内容的用户。<hr />    </div>
+        重写（Rewrite）可用于修改请求头、屏蔽广告、替换响应内容等。通过正则匹配目标请求可实现页面定制与功能增强，但应谨慎使用以避免影响正常网站加载与安全验证。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的 Routing 设置可以实现什么？</h5></div>
@@ -367,14 +362,19 @@ A：检查DNS设置是否被污染，推荐使用 DoH 或 DNS-over-TLS。</p>
         支持。可通过 IP 段匹配将流量分流到指定节点。结合策略组，可实现国内直连、国外代理或游戏加速，实现精细化流量管理和优化网络访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 在高延迟移动网络的优势？</h5></div>
-    <div class="panel-body">
-        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定移动网络。结合策略组和节点切换，可提高网页浏览、视频播放和游戏连接的稳定性和流畅度。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的 PAC 模式如何优化访问？</h5></div>
     <div class="panel-body">
         PAC 模式可根据规则动态判断流量是否走代理，无需手动切换节点。适合国内外混合访问场景，提高访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的路由规则能否实现分国家代理？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持 GeoIP 路由规则，通过引入国家数据库可根据 IP 自动判断地理位置。例如可设置 CN 走直连，US/JP 走代理，以此实现分国家策略路由，适合需要访问不同地区内容的用户。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何用 systemd 管理 V2Ray/ Sing-box 服务？</h5></div>
+    <div class="panel-body">
+        创建 systemd 单元文件，指定 ExecStart 指令并设置 Restart=on-failure 与合适的 User/Group。启用服务并使用 `systemctl enable` 与 `systemctl start` 管理，便于开机自启与日志集中收集。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 如何实现 UDP 游戏加速？</h5></div>
@@ -382,9 +382,9 @@ A：检查DNS设置是否被污染，推荐使用 DoH 或 DNS-over-TLS。</p>
         Netch 支持 UDP 转发，可专门为游戏流量建立高速通道。结合策略组和节点延迟检测，可有效减少丢包和延迟，提高游戏体验的流畅性和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何用 systemd 管理 V2Ray/ Sing-box 服务？</h5></div>
+    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
     <div class="panel-body">
-        创建 systemd 单元文件，指定 ExecStart 指令并设置 Restart=on-failure 与合适的 User/Group。启用服务并使用 `systemctl enable` 与 `systemctl start` 管理，便于开机自启与日志集中收集。    </div>
+        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -432,16 +432,16 @@ A：检查DNS设置是否被污染，推荐使用 DoH 或 DNS-over-TLS。</p>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-8-free-node-subscribe.htm" title="8月8日最新机场订阅 | 21.8M/S|2025年Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点免费节点地址链接分享">8月8日最新机场订阅 | 21.8M/S|2025年Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-15-clash-windows.htm" title="7月15日最新机场订阅 | 22M/S|2025年Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点/SSR节点免费节点地址链接分享">7月15日最新机场订阅 | 22M/S|2025年Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点/SSR节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-21-clash-node-github.htm" title="7月21日最新机场订阅 | 18.2M/S|2025年V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点免费节点地址链接分享">7月21日最新机场订阅 | 18.2M/S|2025年V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-clash-v2ray-ss-ssr.htm" title="7月20日最新机场订阅 | 22.2M/S|2025年V2ray节点/SSR节点/Clash节点/Trojan节点/Shadowrocket节点/Singbox节点免费节点地址链接分享">7月20日最新机场订阅 | 22.2M/S|2025年V2ray节点/SSR节点/Clash节点/Trojan节点/Shadowrocket节点/Singbox节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-14-free-node-subscribe.htm" title="7月14日最新机场订阅 | 20M/S|2025年SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点免费节点地址链接分享">7月14日最新机场订阅 | 20M/S|2025年SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-26-free-node-subscribe.htm" title="7月26日最新机场订阅 | 20.2M/S|2025年V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点免费节点地址链接分享">7月26日最新机场订阅 | 20.2M/S|2025年V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-12-clash-node.htm" title="8月12日最新机场订阅 | 22M/S|2025年Clash节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/V2ray节点免费节点地址链接分享">8月12日最新机场订阅 | 22M/S|2025年Clash节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/V2ray节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-clash-v2ray-ss-ssr.htm" title="7月30日最新机场订阅 | 20.3M/S|2025年SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点免费节点地址链接分享">7月30日最新机场订阅 | 20.3M/S|2025年SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-11.htm" title="8月11日最新机场订阅 | 20.3M/S|2025年SSR节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点免费节点地址链接分享">8月11日最新机场订阅 | 20.3M/S|2025年SSR节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点免费节点地址链接分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-22-free-clash.htm" title="7月22日最新机场订阅 | 18.6M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Trojan节点免费节点地址链接分享">7月22日最新机场订阅 | 18.6M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Trojan节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-15.htm" title="8月15日最新机场订阅 | 18.9M/S|2025年SSR节点/Trojan节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点免费节点地址链接分享">8月15日最新机场订阅 | 18.9M/S|2025年SSR节点/Trojan节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-20-free-clash.htm" title="8月20日最新机场订阅 | 19.4M/S|2025年V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点免费节点地址链接分享">8月20日最新机场订阅 | 19.4M/S|2025年V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-18-clash-node.htm" title="8月18日最新机场订阅 | 21.7M/S|2025年V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点地址链接分享">8月18日最新机场订阅 | 21.7M/S|2025年V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-29.htm" title="8月29日最新机场订阅 | 20.6M/S|2025年Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点免费节点地址链接分享">8月29日最新机场订阅 | 20.6M/S|2025年Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-clash-node.htm" title="9月2日最新机场订阅 | 21.1M/S|2025年V2ray节点/Trojan节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点免费节点地址链接分享">9月2日最新机场订阅 | 21.1M/S|2025年V2ray节点/Trojan节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-clash-subscribe-2026-8-25.htm" title="8月25日最新机场订阅 | 22.3M/S|2025年Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Singbox节点免费节点地址链接分享">8月25日最新机场订阅 | 22.3M/S|2025年Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Singbox节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-8-23.htm" title="8月23日最新机场订阅 | 21.5M/S|2025年SSR节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点免费节点地址链接分享">8月23日最新机场订阅 | 21.5M/S|2025年SSR节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-31.htm" title="8月31日最新机场订阅 | 19.6M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点免费节点地址链接分享">8月31日最新机场订阅 | 19.6M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-3.htm" title="9月3日最新机场订阅 | 22.3M/S|2025年SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点免费节点地址链接分享">9月3日最新机场订阅 | 22.3M/S|2025年SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点免费节点地址链接分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-8-9.htm" title="8月9日最新机场订阅 | 22M/S|2025年Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点/V2ray节点免费节点地址链接分享">8月9日最新机场订阅 | 22M/S|2025年Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点/V2ray节点免费节点地址链接分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -453,10 +453,10 @@ A：检查DNS设置是否被污染，推荐使用 DoH 或 DNS-over-TLS。</p>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
